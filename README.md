@@ -56,6 +56,60 @@ See the individual READMEs for detailed docs:
 
 ---
 
+## How to Use
+
+Once both the back-end and front-end servers are running, follow these steps to get started:
+
+### Step 1 — Register a New Account
+
+Open the app in your browser (`http://localhost:5173`). You will be redirected to the **Register** page. Fill in your name, email, and password, then click **Register** to create your account.
+
+![Register](screenshoots/register.png)
+
+### Step 2 — Log In
+
+After registering, you will be taken to the **Login** page. Enter the email and password you just created and click **Login** to access the app.
+
+![Login](screenshoots/login.png)
+
+### Step 3 — Create Tags
+
+Navigate to the **Tags** tab from the top navigation bar. Here you can create tags to categorize your tasks. Enter a tag name, pick a color, and click **Create**. Create as many tags as you need (e.g. *Work*, *Personal*, *Urgent*).
+
+![Tags](screenshoots/tags.png)
+
+### Step 4 — Create a Task
+
+Go back to the **Dashboard** by clicking it in the navigation bar. Click the **Create Task** button to open the task creation form. Fill in the task details:
+
+- **Title** — A short name for the task.
+- **Description** — Optional details about the task.
+- **Start Date** — When the task begins.
+- **Due Date** — The deadline for the task.
+- **Tag** — Select one of the tags you created in the previous step to assign it to the task.
+
+Click **Create** to save the task. It will appear on your dashboard.
+
+![Create Task](screenshoots/create%20task.png)
+
+### Step 5 — View Tasks on the Dashboard
+
+The **Dashboard** shows all your tasks as cards, each displaying the title, dates, and the assigned tag with its color. You can quickly see what needs to be done at a glance.
+
+![Dashboard](screenshoots/dashboard.png)
+
+### Step 6 — View Tasks on the Calendar
+
+Switch to the **Calendar** view from the navigation bar. Your tasks will be displayed on the calendar based on their start and due dates. You can toggle between **Month**, **Week**, **Day**, and **Agenda** views to plan your schedule.
+
+![Calendar](screenshoots/calendar.png)
+
+### Step 7 — Delete a Task
+
+To delete a task, click on the task card on the Dashboard to open its details. Click the **Delete** button and confirm the deletion in the confirmation dialog. The task will be removed from both the dashboard and the calendar.
+
+---
+
 ## Prerequisites
 
 - **Node.js** ≥ 18
@@ -91,7 +145,6 @@ Run migrations and start the server:
 ```bash
 npx prisma migrate deploy
 npx prisma generate
-npx prisma migrate dev --name init #to sync local db
 npm run dev          # → http://localhost:5000
 ```
 
