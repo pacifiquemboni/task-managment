@@ -110,6 +110,43 @@ To delete a task, click on the task card on the Dashboard to open its details. C
 
 ---
 
+## Installing the PWA
+
+TaskFlow is a Progressive Web App and can be installed on your device for a native-like experience.
+
+1. Open the app in **Google Chrome** (or any Chromium-based browser such as Edge).
+2. Look for the **Install** button (amber-colored) in the top-right corner of the navigation bar.
+3. Click **Install** — the browser will show a native install dialog.
+4. Confirm the installation. TaskFlow will now appear as a standalone app on your desktop or home screen.
+
+> **Note:** The Install button only appears when the browser's install criteria are met (served over HTTPS or localhost, valid manifest, and active service worker). If you don't see it, make sure you're running the production build or have `devOptions` enabled in the Vite PWA config.
+
+---
+
+## Testing Offline Access
+
+The app caches API data and static assets via a Workbox service worker, so previously loaded content remains available without a network connection.
+
+### How to test
+
+1. **Load the app normally** — Open TaskFlow in your browser and navigate through the Dashboard, Calendar, and Tags pages so the service worker caches the API responses and assets.
+
+2. **Go offline** — Use one of these methods:
+   - **Browser DevTools:** Open DevTools → **Network** tab → check the **Offline** checkbox.
+   - **System:** Disconnect from Wi-Fi or unplug Ethernet.
+
+3. **Verify offline behavior:**
+   - Refresh the page — the app shell should load instantly from cache.
+   - The **Dashboard** and **Calendar** will display your previously loaded tasks and tags from cached API data.
+   - An **offline banner** will appear at the top of the page indicating you are working without a connection.
+   - Navigation between cached pages (Dashboard, Calendar, Tags) continues to work.
+
+4. **Go back online** — Uncheck the Offline checkbox in DevTools (or reconnect your network). The offline banner will disappear, and the app will resume fetching fresh data from the server.
+
+> **Limitations while offline:** Create, update, and delete operations require a network connection and will fail gracefully when offline. Only previously cached data is available for viewing.
+
+---
+
 ## Prerequisites
 
 - **Node.js** ≥ 18

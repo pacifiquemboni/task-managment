@@ -133,6 +133,12 @@ export default defineConfig({
         navigateFallback: '/index.html',
         navigateFallbackDenylist: [/^\/api\//],
       },
+
+      // ── Dev mode — register SW so install prompt & offline work ────
+      devOptions: {
+        enabled: true,
+        type: 'module',
+      },
     }),
   ],
 
